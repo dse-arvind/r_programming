@@ -1,0 +1,33 @@
+#ggplot2 Plotting System
+
+• library(ggplot2) = loads ggplot2 package
+• implementation of Grammar of Graphics by Leland Wilkinson, written by Hadley Wickham (created
+RStudio)
+
+“In brief, the grammar tells us that a statistical graphic is a mapping from data to aesthetic attributes (color, shape, size) of geometric objects (points, lines, bars). The plot may also contain statistical transformations of the data and is drawn on a specific coordinate system”
+
+• grammar graphics plot, splits the different between base and lattice systems
+• automatically sets spacings/text/tiles but also allows annotations to be added
+• default makes a lot of choices, but still customizable
+
+
+#ggplot2 Functions and Parameters
+• basic components of a ggplot2 graphic
+– data frame = source of data
+– aesthetic mappings = how data are mappped to color/size (x vs y) – geoms = geometric objects like points/lines/shapes to put on page
+– facets = conditional plots using factor variables/multiple panels
+– stats = statistical transformations like binning/quantiles/smoothing – scales = scale aesthetic map uses (i.e. male = red, female = blue)
+– coordinate system = system in which data are plotted
+
+
+#• qplot(x, y, data , color, geom) = quick plot, analogous to base system’s plot() function
+– default style: gray background, white gridlines, x and y labels automatic, and solid black circles for data points
+– data always comes from data frame (in unspecified, function will look for data in workspace)
+– plots are made up of aesthetics (size, shape, color) and geoms (points, lines)
+#
+• factor variables: important for graphing subsets of data = they should be labelled with specific information, and not just 1, 2, 3
+– color = factor1 = use the factor variable to display subsets of data in different colors on the same plot (legend automatically generated)
+– shape = factor2 = use the factor variable to display subsets of data in different shapes on the same plot (legend automatically generated)
+– example
+ library(ggplot2)
+qplot(displ, hwy, data = mpg, color = drv, shape = drv)
