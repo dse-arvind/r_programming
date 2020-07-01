@@ -1,0 +1,33 @@
+R Markdown
+• integration of R code and markdown
+– allows creating documents containing “live” R code
+– R code is evaluated as a part of the processing of the markdown – results from R code inserted into markdown document
+– core tool for literate statistical programming
+
+# pros
+∗ text/code all in one place in logical order 11
+url "text"
+∗ data/results automatically updated to reflect external changes
+∗ code is live = automatic test when building document
+
+#cons
+∗ text/code all in one place, can be difficult to read especially if there’s a lot of code ∗ can substantially slowdown processing of documents
+• knitr package
+– written by YihuiXie, built into RStudio
+– support Markdown, LaTeX, HTML as documentation languages
+– Exports PDF/HTML
+– good for manuals, short/medium technical documents, tutorials, periodic reports, data preprocess-
+ing documents/summaries
+– not good for long research articles, complex time-consuming computations, precisely formatted
+documents
+– evaluates R markdown documents and return/records the results, and write out a Markdown files
+– Markdown file can then be converted into HTML using markdown package
+– solidify package converts R markdown into presentation slides
+
+# In RStudio, create new R Markdown files by clicking New → R Markdown
+
+
+library(datasets)
+library(xtable)
+fit <- lm(Ozone ~ Wind + Temp + Solar.R, data = airquality) xt <- xtable(summary(fit))
+print(xt, "latex")
