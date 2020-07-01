@@ -15,13 +15,6 @@ install.packages("tidyverse")
 
 # Alternatively, install just dplyr:
 install.packages("dplyr")
-Development version
-
-To get a bug fix or to use a feature from the development version, you can install the development version of dplyr from GitHub.
-
-# install.packages("devtools")
-devtools::install_github("tidyverse/dplyr")
-Cheatsheet
 
 
 Usage
