@@ -1,0 +1,83 @@
+#Getting Data In and Out of R Reading and Writing Data 
+#There are a few principal functions reading data into R. 
+• read.table, read.csv, for reading tabular data
+• readLines, for reading lines of a text file
+• source, for reading in R code files (inverse of dump)
+• dget, for reading in R code files (inverse of dput)
+• load, for reading in saved workspaces
+• unserialize, for reading single R objects in binary form 
+
+
+
+#There are analogous functions for writing data to files 
+	•	write.table, for writing tabular data to text files (i.e. CSV) or connections 
+	•	writeLines, for writing character data line-by-line to a file or connection 
+	•	dump, for dumping a textual representation of multiple R objects 
+	•	dput, for outputting a textual representation of an R object 
+	•	save, for saving an arbitrary number of R objects in binary format (possibly compressed) to a file. 
+	•	serialize, for converting an R object into a binary format for outputting to a connection (or file).  
+
+
+
+#Reading Data Files with read.table() 
+	.	The read.table() function has a few important arguments:  
+	•	file, the name of a file, or a connection 
+	•	header, logical indicating if the file has a header line 
+	•	sep, a string indicating how the columns are separated 
+	•	colClasses, a character vector indicating the class of each column in the dataset 
+	•	nrows, the number of rows in the dataset. By default read.table() reads an entire file. 
+	•	comment.char, a character string indicating the comment character. This defalts to "#". If there  are no commented lines in your file, it’s worth setting this to be the empty string "". 
+	•	skip, the number of lines to skip from the beginning 
+	•	stringsAsFactors, should character variables be coded as factors? This defaults to TRUE  because back in the old days, if you had data that were stored as strings, it was because those strings represented levels of a categorical variable. Now we have lots of data that is text data and they don’t always represent categorical variables. So you may want to set this to be FALSE in those cases. If you always want this to be FALSE, you can set a global option via options(stringsAsFactors = FALSE). I’ve never seen so much heat generated on discussion forums about an R function argument than the stringsAsFactors argument. Seriously.  For small to moderately sized datasets, you can usually call read.table without specifying any other arguments  > data <- read.table("foo.txt")  
+
+
+#Using the readr Package 
+
+The package provides replacements for functions like read.table() and read.csv(). The analogous functions in readr are read_table() and read_csv(). 
+One can create a more descriptive representation of an R object by using the dput() or dump() functions. 
+dump() and dput() preserve the metadata (sacrificing some readability), 
+
+
+#Using dput() and dump()
+
+One way to pass data around is by deparsing the R object with dput() and reading it back in (parsing it) using dget(). 
+>## Create a data frame
+> y <- data.frame(a = 1, b = "a")
+> ## Print 'dput' output to console
+> dput(y)
+
+structure(list(a = 1, b = structure(1L, .Label = "a", class = "factor")), 
+Names\ = c("a","b"), row.names = c(NA, -1L), class = "data.frame") 
+
+Notice that the dput() output is in the form of R code and that it preserves metadata like the class of the object, the row names, and the column names. 
+
+The output of dput() can also be saved directly to a file. 
+> ## Send 'dput' output to a file
+> dput(y, file = "y.R")
+> ## Read in 'dput' output from a file > new.y <- dget("y.R")
+> new.y 
+ab 11a 
+
+#Multiple objects can be deparsed at once using the dump function and read back in using source.
+> x <- "foo" 
+> y <- data.frame(a = 1L, b = "a") We can dump() R objects to a file by passing a character vector of their names. 
+> dump(c("x", "y"), file = "data.R")
+> rm(x, y)
+
+
+#The inverse of dump() is source(). 
+> source("data.R")
+> str(y)
+'data.frame':        1 obs. of  2 variables:
+$ a: int 1 
+$ b: Factor w/ 1 level "a": 1 >x 
+[1] "foo" 
+
+
+#The benefit of the serialize() function is that it is the only way to perfectly represent an R object in an exportable format, without losing precision or any metadata. 
+
+#Subsetting R Objects 
+There are three operators that can be used to extract subsets of R objects. 
+	•	The [ operator always returns an object of the same class as the original. It can be used to select multiple elements of an object 
+	•	The [[ operator is used to extract elements of a list or a data frame. It can only be used to extract a single element and the class of the returned object will not necessarily be a list or data frame. 
+The$operatorisusedtoextractelementsofalistordataframebyliteralname.Itssemantics are similar to that of [[. 
