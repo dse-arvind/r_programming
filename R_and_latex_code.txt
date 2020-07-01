@@ -1,0 +1,277 @@
+\documentclass[a4paper]{article}
+\usepackage[a4paper,top=2cm,bottom=2.5cm,left=1.5cm,right=1.5cm,marginparwidth=1.75cm]{geometry}
+%% Language and font encoding
+\usepackage[english]{babel}
+\usepackage[utf8x]{inputenc}
+\usepackage{listings}
+\usepackage{newunicodechar}
+
+
+%% Sets page size and margins
+\usepackage{float}
+%% Useful packages
+\usepackage{amsmath}
+\usepackage[colorinlistoftodos]{todonotes}
+\usepackage[colorlinks=true, allcolors=blue]{hyperref}
+\usepackage{listings}
+\usepackage{url}
+\usepackage{graphicx}
+\graphicspath{ {./images/} }
+% \DeclareGraphicsExtensions{.pdf,.jpg,.png}
+
+%% defined colors
+\definecolor{Blue}{rgb}{0,0,0.5}
+\definecolor{Green}{rgb}{0,0.75,0.0}
+\definecolor{LightGray}{rgb}{0.6,0.6,0.6}
+\definecolor{DarkGray}{rgb}{0.3,0.3,0.3}
+
+\title{R Programming Notes using $\LaTeX$}
+\author{
+Arvind Kumar\\ }
+\date{\today}
+
+
+\begin{document}
+\maketitle
+\abstract{R is a language and environment for statistical computing and graphics. This essay give brief introduction to R. The entire essay is written using $\LaTeX$\. }
+\section*{Introduction}
+ Always play with the code while learning,programming fundamentals always need to come first: the better you understand them, the easier it is to learn more advanced concepts. For college exams and technical interviews you will have to code-by-hand, because not only is this good for learning, but it’s universally known to be the ultimate test for a programmer’s proficiency.R is a programming language developed by Ross Ihaka and Robert Gentleman in 1993. R possesses an extensive catalog of statistical and graphical methods. It includes machine learning algorithms, linear regression, time series, statistical inference to name a few. Most of the R libraries are written in R, but for heavy computational tasks, C, C++ and Fortran codes are preferred.
+
+\section{Basics}
+There is an art to problem solving, and the only way to get practice is to get out there and start solving problems. Form your question, get data, explore and analyse your data, and communicate your results.
+\subsection{What is data?}
+ First up, we’ll look at the Cambridge English Dictionary, which states that data is:
+Information, especially facts or numbers, collected to be examined and considered and used to help decision-making.
+Second, we’ll look at the definition provided by Wikipedia, which is:
+A set of values of qualitative or quantitative variables.
+A more complex data source to analyse are images/videos. There is a wealth of information coded in an image or video, and it is just waiting to be extracted. An example of image analysis that you may be familiar with is when you upload a picture to Facebook and not only does it automatically recognize faces in the picture, but then suggests who they may be. A fun example you can play with is the Deep Dream software that was originally designed to detect faces in an image, but has since moved on to more artistic pursuits.
+
+\subsection {Installing R and RStudio}
+Install R and can open the R interface to input code, but there are other ways to interface with R - and one of those ways is using RStudio
+o expand upon R’s basic functionality, people have developed packages.A package is a collection of functions, data, and code conveniently provided in a nice, complete format for you.A package is not to be confused with a library (these two terms are often conflated in colloquial speech about R). A library is the place where the package is located on your computer. To think of an analogy, a library is, well, a library… and a package is a book within the library. The library is where the books/packages are located.
+
+
+
+\subsection{What are repositories?}
+A repository is a central location where many developed packages are located and available for download.
+\subsubsection{There are three big repositories}
+\begin{enumerate}
+ \item CRAN (Comprehensive R Archive Network):R’s main repository (more than 12,100 packages available!
+ \item BioConductor:A repository mainly for bioinformatic-focused packages
+ \item GitHub:A very popular, open source repository (not R specific!)
+ \end{enumerate}
+
+\subsection{What is an R Project?}
+When you make a Project, it creates a folder where all files will be kept, which is helpful for organizing yourself and keeping multiple projects separate from each other. 
+\subsection{What is version control?}
+Version control is a system that records changes that are made to a file or a set of files over time.
+What are the benefits of using version control?
+Without version control, one might be keeping multiple, very similar copies of a file
+Git is a free and open source version control system.
+We’ve spent a lot of time getting R and RStudio working, learning about projects and version control - you are practically an expert at this! There is one last major functionality of R/RStudio that we would be remiss to not include in your introduction to R -Markdown!
+\subsection{What is R Markdown?}
+R Markdown is a way of creating fully reproducible documents, in which both text and code can be combined. In fact, these lessons are written using R Markdown! That’s how we make things:bullets, bold, italics, links, run inliner code
+\subsection{The main types of data science analysis}
+There are, broadly speaking, six categories in which data analyses fall.
+\subsubsection {Descriptive Analysis} Descriptive Analysis will generate simple summaries about the samples and their measurements. You may be familiar with common descriptive statistics: measures of central tendency (eg: mean, median, mode) or measures of variability (eg: range, standard deviations or variance).
+\subsubsection {Exploratory} The goal of exploratory analysis is to examine or explore the data and search relationships that weren’t previously known.
+\subsubsection {Inferential Analysis} is commonly the goal of statistical modelling, where you have a small amount of information to extrapolate and generalize that information to a larger group.
+\subsubsection {PredictiveEssentially} you are using current and historical data to get patterns and predict the likelihood of future outcomes.
+\subsubsection {Causal Analysis} Fills that gap; the goal of causal analysis is to see what happens to one variable when we manipulate another variable - looking at the cause and outcome of a relationship.
+\subsubsection {Mechanistic Analyses} are not nearly as commonly used as the previous analyses - the goal of mechanistic analysis is to understand the exact changes in variables that lead to exact changes in other variables. These analyses are exceedingly hard to use to infer much, except in simple situations or in those that are nicely modeled by deterministic equations.
+
+
+ \subsection{ Challenges of working with big data}
+ \begin{enumerate}
+ \item It is big
+\item It is constantly changing and updating
+\item The variety can be overwhelming
+\item It is messy
+
+\end{enumerate}
+
+\subsection {Advantage of working with big data}
+So with all of these challenges, why don’t we just stick to analysing smaller, more manageable, curated datasets and arriving at our answers that way?
+Sometimes questions are best addressed using these smaller datasets, but many questions advantage from having lots and lots of data, and if there is some messiness or inaccuracies in this data, the sheer volume of it negates the reason of these small errors. So we are able to get closer to the truth even with these messier datasets. Additionally, when you have data that is constantly updating, while this can be a challenge to analyse, the ability to have real time, up to date information allows you to do analyses that are accurate to the current state and make on the spot, rapid, informed predictions and decisions.
+
+
+
+\section{How to program in R and how to use R for effective data analysis}
+Roger D. Peng: I don’t think anyone actually believes that R is designed to make everyone happy. For me, R does about 99% of the things I need to do, but sadly, when I need to order a pizza, I still have to pick up the telephone.
+
+\subsection{R Nuts and Bolts}
+The primary R system is available from the Comprehensive R Archive Network15, also known as CRAN .R functionality is divided into a number of packages.
+\subsection{Entering Input} 
+
+\subsubsection{Evaluation} 
+When a complete expression is entered at the prompt, it is evaluated and the result of the evaluated expression is returned. The result may be auto-printed. 
+
+\begin{lstlisting}[language=R]
+# Create a sequence of numbers
+X = 2:10
+# Display basic statistical measures
+summary(X)
+\end{lstlisting}
+
+
+
+
+\section{R Objects} 
+R has five basic or “atomic” classes of objects: 
+\begin{enumerate}
+
+ \item character
+ \item  numeric (real numbers) 
+ \item integer
+ \item complex\item logical (True/False) 
+\end{enumerate}
+
+\A vector can only contain objects of the same class. 
+Numbers in R are generally treated as numeric objects (i.e. double precision real numbers) so something like “1.00” or “2.00” 
+If you explicitly want an integer, you need to specify the L suffix. So entering 1 in R gives you a 
+numeric object; entering 1L explicitly gives you an integer object. 
+\section{Attributes}
+R objects can have attributes, which are like metadata for the object. These metadata can be very useful in that they help to describe the object. For example, column names on a data frame help to tell us what data are contained in each of the columns. Some examples of R object attributes are 
+\begin{enumerate}
+
+ \item names\item dimnames\item dimensions (e.g. matrices, arrays)\item  class (e.g. integer, numeric)\item  length\item  other user-defined attributes/metadata 
+\end{enumerate}
+
+Attributes of an object (if any) can be accessed using the attributes() function. Not all R objects contain attributes, in which case the attributes() function returns NULL. 
+
+\subsection{Creating Vectors} 
+The c() function can be used to create vectors of objects by concatenating things together.
+\begin{lstlisting}[language=R]
+> x <- c(0.5, 0.6)
+> x <-c(TRUE,FALSE)
+\end{lstlisting}
+When different objects are mixed in a vector, coercion occurs so that every element in the vector is of the same class. 
+implicit coercion. 
+Explicit Coercion 
+Objects can be explicitly coerced from one class to another using the as.* functions, if available. 
+\begin{lstlisting}[language=R]
+> x <- 0:6
+> class(x)
+[1] "integer"
+> as.numeric(x)
+[1] 0 1 2 3 4 5 6
+> as.logical(x)
+[1] FALSE TRUE TRUE TRUE TRUE TRUE TRUE > as.character(x)
+[1] "0" "1" "2" "3" "4" "5" "6" 
+\end{lstlisting}
+\subsection{Matrices} 
+Matrices are vectors with a dimension attribute. The dimension attribute is itself an integer vector of length 2 (number of rows, number of columns) 
+\begin{lstlisting}[language=R]
+
+> m <- matrix(nrow = 2, ncol = 3) 
+>m 
+[,1] [,2] [,3] [1,] NA NA NA [2,] NA NA NA 
+> dim(m)
+[1] 2 3
+> attributes(m)
+$dim
+[1] 2 3
+> y <- c(1.7, "a") ## character 
+\end{lstlisting}
+
+\subsection{Lists }
+Lists are a special type of vector that can contain elements of different classes. 
+Lists can be explicitly created using the list() function, which takes an arbitrary number of arguments.
+\begin{lstlisting}[language=R]
+> x <- list(1, "a", TRUE, 1 + 4i) 
+>x
+[[1]] [1] 1 
+\end{lstlisting}
+
+\subsection{ Factors} 
+Factors are used to represent categorical data and can be unordered or ordered. One can think of a factor as an integer vector where each integer has a label.
+\begin{lstlisting}[language=R]
+> x <- factor(c("yes", "yes", "no", "yes", "no")) 
+>x
+[1] yes yes no yes no
+\end{lstlisting}
+
+\subsection{Missing Values} 
+Missing values are denoted by NA or NaN for q undefined mathematical operations. 
+\begin{enumerate}
+    \item is.na() is used to test objects if they are NA
+\item is.nan() is used to test for NaN 
+\end{enumerate}
+\begin{lstlisting}[language=R]
+> ## Create a vector with NAs in it
+> x <- c(1, 2, NA, 10, 3)
+> ## Return a logical vector indicating which elements are NA
+> is.na(x)
+[1] FALSE FALSE TRUE FALSE FALSE
+
+\end{lstlisting}
+
+\subsection{Data Frames} 
+Data frames are used to store tabular data in R. 
+package dplyr35 has an optimized set of functions designed to work efficiently with data frames. 
+every element of the list has to have the same length. 
+data frames can store different classes of objects in each column. 
+Data frames are usually created by reading in a dataset using the read.table() or read.csv(). 
+\begin{lstlisting}[language=R]
+> x <- data.frame(foo = 1:4, bar = c(T, T, F, F))
+>x 
+foo bar 
+1 1 TRUE 2 2 TRUE 
+	.	3 3 FALSE 
+	.	4 4 FALSE 
+> nrow(x)
+[1] 4
+> ncol(x)
+[1] 2
+\end{lstlisting}
+\subsection{Names} 
+Useful for writing readable code and self-describing objects. 
+\begin{lstlisting}[language=R]
+> x <- 1:3
+> names(x)
+NULL
+> names(x) <- c("New York", "Seattle", "Los Angeles")
+>x 
+   New York     Seattle Los Angeles
+123 > names(x) 
+[1] "New York" "Seattle" "Los Angeles" 
+\end{lstlisting}
+
+\section{Adding ggplot 2 example figures}
+
+\begin{figure}[H]
+\centering
+   \includegraphics[width=0.5\textwidth]{images/Rplot7.png}
+   \caption{Titanic Survival Rates by Age using histogram}
+   \label{fig:noTicks}
+\end{figure}
+\begin{figure}[H]
+\centering
+   \includegraphics[width=0.4\textwidth]{images/Rplot8.png}
+   \caption{Titanic Survival Rates by Age using box and whisker plot}
+   \label{fig:PageLimit}
+\end{figure}
+\begin{figure}[H]
+\centering
+   \subfloat[ Fig.a]{\includegraphics[width=0.4\textwidth]{images/Rplot9.png}}%
+   \qquad
+    \subfloat[Fig.b]{\includegraphics[width=0.4\textwidth]{images/Rplot10.png}}%
+   \caption{Titanic Survey Rates by Age,Pclass and Sex using density plot and histogram}
+   \label{fig:PageLimit}
+\end{figure}
+\section{Conclusion}
+$\LaTeX$ is quite simple, anyone who is writing non-trivial documents and is tired of being let down by the performance of the current crop of word processors. If you are in academia, you really ought to be using it! Anybody writing anything maths related will not find a richer and better quality system. For example, even WikiPedia use $\LaTeX$ for rendering any formulas that appear on their site.
+
+$\LaTeX$ isn't for people who are too lazy or dislike change! I personally found the investment paid off because $\LaTeX$ allows me to produce my documents at a greater pace. I know that the enterprise will not be interested as Word is so ingrained, even though their business reports would look so much nicer. Their loss! For everyone else, it's time to give it a fair try, just so that you compare and contrast, then decide which does the job best for your needs.
+
+
+
+\bibliographystyle{plain}
+\bibliography{}
+Roger D. Peng.
+\textit{R Programming for Data Science}
+\\{https://www.overleaf.com}
+
+
+
+\end{document}
