@@ -1,0 +1,32 @@
+#Reproducible Research Checklist
+
+• Checklist
+– Are we doing good science?
+– Was any part of this analysis done by hand?
+∗ If so, are those parts precisely document?
+∗ Does the documentation match reality?
+– Have we taught a computer to do as much as possible (i.e. coded)?
+– Are we using a version control system?
+– Have we documented our software environment?
+– Have we saved any output that we cannot reconstruct from original data + code?
+– How far back in the analysis pipeline can we go before our results are no longer (automatically)
+reproducible?
+
+#Do’s
+• start with good science
+– work on interesting problem (to you & other people)
+– form coherent/focused question to simplify problem
+– collaborate with others to reinforce good practices and habits
+• teach a computer
+• use version control
+ helps to keep track of history/snapshots – allows reverting to old versions
+• keep track of software environment
+– some tools/datasets may only work on certain software/environment
+
+
+Don’ts
+• do things by hand
+– downloading data from website (clicking on link)
+∗ need lengthy set of instructions to obtain the same data set
+• point and click
+
