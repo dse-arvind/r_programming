@@ -5,13 +5,15 @@ R Markdown
 – core tool for literate statistical programming
 
 # pros
-∗ text/code all in one place in logical order 11
+∗ text/code all in one place in logical order
 url "text"
 ∗ data/results automatically updated to reflect external changes
 ∗ code is live = automatic test when building document
 
 #cons
 ∗ text/code all in one place, can be difficult to read especially if there’s a lot of code ∗ can substantially slowdown processing of documents
+
+
 • knitr package
 – written by YihuiXie, built into RStudio
 – support Markdown, LaTeX, HTML as documentation languages
@@ -29,5 +31,6 @@ documents
 
 library(datasets)
 library(xtable)
-fit <- lm(Ozone ~ Wind + Temp + Solar.R, data = airquality) xt <- xtable(summary(fit))
+fit <- lm(Ozone ~ Wind + Temp + Solar.R, data = airquality) 
+xt <- xtable(summary(fit))
 print(xt, "latex")
